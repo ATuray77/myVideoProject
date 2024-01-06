@@ -26,9 +26,15 @@ function stopVideo() {
     }
   }
 
+
+  function updateProgress() {
+    progress.value = (video.currentTime / video.duration) * 100;
+  }
+
 video.addEventListener('click', playPause);
 video.addEventListener('play', updateIcon);
 video.addEventListener('click', updateIcon);
+video.addEventListener('timeupdate', updateProgress);
 
 play.addEventListener('click', playPause);
 stop.addEventListener('click', stopVideo);
