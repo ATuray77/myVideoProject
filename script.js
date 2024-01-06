@@ -29,6 +29,19 @@ function stopVideo() {
 
   function updateProgress() {
     progress.value = (video.currentTime / video.duration) * 100;
+
+    //get minutes
+    let minutes = Math.floor(video.currentTime / 60);
+    if (minutes < 10) {
+      minutes = '0' + String(minutes);  
+    }
+
+    let seconds = Math.floor(video.currentTime % 60);
+    if (seconds < 10) {
+      seconds = '0' + String(seconds);  
+    }
+
+    timeStamp.innerHTML = `${minutes}:${seconds}`;
   }
 
 video.addEventListener('click', playPause);
