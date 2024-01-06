@@ -44,6 +44,10 @@ function stopVideo() {
     timeStamp.innerHTML = `${minutes}:${seconds}`;
   }
 
+function setProgress() {
+    video.currentTime = (+progress.value * video.duration) / 100;
+}
+
 video.addEventListener('click', playPause);
 video.addEventListener('play', updateIcon);
 video.addEventListener('click', updateIcon);
@@ -51,3 +55,5 @@ video.addEventListener('timeupdate', updateProgress);
 
 play.addEventListener('click', playPause);
 stop.addEventListener('click', stopVideo);
+
+progress.addEventListener('click', setProgress);
